@@ -4,12 +4,15 @@
 
 // TODO: Develop a simple PHP Calculator program which be able to add, subtract, divide and multiply any entered two numbers.
 global $result;
+$values = array(0, "56", 0);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $_POST['result'] ?? '';
     
     if (isset($_POST['value'])) {
         $result .= $_POST['value'];
+        array_push($values, "Orange", "Kiwi", "Lemon");
+        
     } elseif (isset($_POST['clear'])) {
         $result = clear();
     }

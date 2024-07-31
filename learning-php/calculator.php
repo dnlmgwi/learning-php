@@ -1,5 +1,58 @@
 <!doctype html>
 <html lang="en">
+<?php
+
+// TODO: Develop a simple PHP Calculator program which be able to add, subtract, divide and multiply any entered two numbers.
+global $result;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $result = $_POST['result'] ?? '';
+    
+    if (isset($_POST['value'])) {
+        $result .= $_POST['value'];
+    } elseif (isset($_POST['clear'])) {
+        $result = clear();
+    }
+    
+    if (isset($_POST['calculate'])) {
+        $result = calculate(10, 5, '+');
+    }
+}
+
+function clear() {
+    return "";
+}
+
+function calculate($a, $b, $op) {
+    switch ($op) {
+        case '+': return add($a, $b);
+        case '-': return subtract($a, $b);
+        case 'x': return multiply($a, $b);
+        case '/': 
+            if ($b == 0) return "Division by zero";
+            return divide($a, $b);
+        default:
+            return "Invalid operator";
+    }
+}
+
+function add($a, $b) {
+    return $a + $b;
+}
+
+function subtract($a, $b) {
+    return $a - $b;
+}
+
+function multiply($a, $b) {
+    return $a * $b;
+}
+
+function divide($a, $b) {
+    return $a / $b;
+}
+
+?>
 
 <head>
     <!-- Required meta tags -->
@@ -10,56 +63,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
 
-    <title>PHP Calculator</title>
+    <title>Calculator</title>
 </head>
-<script>
-    
-</script>
-<?php
-
-// TODO: Develop a simple PHP Calculator program which be able to add, subtract, divide and multiply any entered two numbers.
-$result = 0;
-
-$num1 = 0;
-
-$num2 = 0;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['value'])) {
-        $result = $_POST['result'] . $_POST['value'];
-    } elseif (isset($_POST['clear'])) {
-        $result = 0;
-    } 
-    elseif (isset($_POST['calculate'])) {
-        $result = calculate();
-    }
-}
-
-function add() {
-  echo "Add!";
-}
-
-function subtract() {
-  echo "subtract!";
-}
-
-function divide() {
-  echo "divide!";
-}
-
-function multiply() {
-  echo "multiply!";
-}
-
-function clear() {
-  echo "clear!";
-}
-
-function calculate() {
-  echo "equals!";
-}
-?>
-
 <body>
     <div class="flex h-screen justify-center">
         <div class="flex items-center">
@@ -71,9 +76,8 @@ function calculate() {
                             <input 
                                 value="<?php echo $result; ?>"
                                 type="text" 
-                                class="p-3 rounded w-full text-right bg-gray-100 focus:outline-none focus:ring-0 focus:ring-blue-500" 
-                                name="result" 
-                                id="result" 
+                                class="p-3 rounded w-full text-right bg-gray-100 focus:outline-none focus:ring-0 focus:ring-grey-200" 
+                                name="result"
                                 readonly
                                 placeholder="0"
                             />

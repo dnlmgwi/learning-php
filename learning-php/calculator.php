@@ -3,30 +3,46 @@
 <?php
 
 // TODO: Develop a simple PHP Calculator program which be able to add, subtract, divide and multiply any entered two numbers.
-global $result;
-$values = array(0, "56", 0);
+session_start();
+
+if (!isset($_SESSION['values'])) {
+    $_SESSION['values'] = array('', '', '');
+}
+
+$result = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $_POST['result'] ?? '';
     
     if (isset($_POST['value'])) {
-        $result .= $_POST['value'];
-        array_push($values, "Orange", "Kiwi", "Lemon");
+        $value = $_POST['value'];
+        $result .= $value;
         
+        if (is_numeric($value)) {
+            if ($_SESSION['values'][1] === '') {
+                $_SESSION['values'][0] .= $value;
+            } else {
+                $_SESSION['values'][2] .= $value;
+            }
+        } elseif (in_array($value, ['+', '-', 'x', '/'])) {
+            $_SESSION['values'][1] = $value;
+        }
     } elseif (isset($_POST['clear'])) {
         $result = clear();
-    }
-    
-    if (isset($_POST['calculate'])) {
-        $result = calculate(10, 5, '+');
+        $_SESSION['values'] = array('', '', '');
+    } elseif (isset($_POST['calculate'])) {
+        if ($_SESSION['values'][2] !== '') {
+            $result = calculate(
+                floatval($_SESSION['values'][0]),
+                $_SESSION['values'][1],
+                floatval($_SESSION['values'][2]),
+            );
+            $_SESSION['values'] = array($result, '', '');
+        }
     }
 }
 
-function clear() {
-    return "";
-}
-
-function calculate($a, $b, $op) {
+function calculate($a,$op,$b) {
     switch ($op) {
         case '+': return add($a, $b);
         case '-': return subtract($a, $b);
@@ -37,6 +53,10 @@ function calculate($a, $b, $op) {
         default:
             return "Invalid operator";
     }
+}
+
+function clear() {
+    return "";
 }
 
 function add($a, $b) {

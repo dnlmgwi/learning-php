@@ -121,7 +121,7 @@ function divide($a, $b) {
     <div class="flex h-screen justify-center">
         <div class="flex items-center">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <div class="flex flex-col items-center space-y-4 border-1 rounded-lg p-5 shadow-xl">
+                <div class="flex flex-col items-center space-y-4 border-2 rounded-lg p-5 shadow-xl">
                     <div class="flex flex-col items-center space-y-4 mb-5 w-full">
                         <div class="flex flex-col items-center w-full">
                             <div class="flex flex-col items-start w-full p-4">

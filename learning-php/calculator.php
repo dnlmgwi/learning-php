@@ -7,6 +7,15 @@
 // https://www.w3schools.com/php/php_sessions.asp
 session_start();
 
+global $buttons;
+
+$buttons = [
+    ['7', '8', '9'],
+    ['4', '5', '6'],
+    ['1', '2', '3'],
+    ['0', '00', '.']
+];
+
 // Initialize the session values if they don't exist
 if (!isset($_SESSION['values'])) {
     $_SESSION['values'] = array('', '', ''); // [first number, operator, second number]
@@ -126,8 +135,15 @@ function divide($a, $b) {
                             />
                             </div>
                             <div class="grid grid-cols-4 gap-2">                        
-                                <div class="grid col-span-3 grid-cols-3 gap-2 w-full">                         
-                                    <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="7">7</button>
+                                <div class="grid col-span-3 grid-cols-3 gap-2 w-full">
+                                     <?php
+                                        foreach ($buttons as $row) {
+                                            foreach ($row as $button) {
+                                                echo '<button type="submit" value="' . $button . '" class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" name="value">' . ucfirst($button) . '</button>';
+                                            }
+                                        }
+                                    ?>                         
+                                    <!-- <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="7">7</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="8">8</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="9">9</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="4">4</button>
@@ -138,7 +154,7 @@ function divide($a, $b) {
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="3">3</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="0">0</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="00">00</button>
-                                    <button class="bg-gray-200 hover:bg-gray-300 p-4 col-start-3 rounded-full" type="submit" name="value" value=".">.</button>
+                                    <button class="bg-gray-200 hover:bg-gray-300 p-4 col-start-3 rounded-full" type="submit" name="value" value=".">.</button> -->
                                     <button class="bg-orange-500 hover:bg-orange-600 text-white p-4 col-span-3 rounded-full" type="submit" name="calculate">=</button>
                                 </div>
                                 <div class="grid grid-cols-1 col-start-4 gap-2">

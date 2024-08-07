@@ -9,22 +9,22 @@ body {
 
 ::-webkit-input-placeholder {
   /* chrome, safari */
-  text-align: right;
+  text-align: left;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  text-align: right;
+  text-align: left;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  text-align: right;
+  text-align: left;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer */
-  text-align: right;
+  text-align: left;
 }
 
 input[type="checkbox"]:checked {
@@ -92,6 +92,7 @@ input[type="range"]::-ms-track {
 body input {
   width: 325px;
   height: 59px;
+  text-align: left;
   background-color: var(--background);
 }
 
@@ -433,22 +434,4 @@ p.text {
   --brand-secondary-600: #252525;
   --brand-secondary-700: #010101;
   --brand-secondary-base: #010101;
-
-  --brand-tertiary-100: #fee300;
-  --brand-tertiary-200: #d2bb00;
-  --brand-tertiary-300: #a79500;
-  --brand-tertiary-400: #7e7000;
-  --brand-tertiary-500: #584d00;
-  --brand-tertiary-600: #342d00;
-  --brand-tertiary-700: #141100;
-  --brand-tertiary-base: #fee300;
-
-  --brand-quaternary-100: #c4ffcd;
-  --brand-quaternary-200: #06ee5f;
-  --brand-quaternary-300: #03c24b;
-  --brand-quaternary-400: #029739;
-  --brand-quaternary-500: #016e27;
-  --brand-quaternary-600: #004817;
-  --brand-quaternary-700: #002508;
-  --brand-quaternary-base: #029739;
 }

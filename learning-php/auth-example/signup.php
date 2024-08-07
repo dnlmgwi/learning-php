@@ -49,22 +49,21 @@ if ($conn) {
                             <h3 class="fw-bold">Sign Up</h3>
                         </div>
                         <div class="d-flex flex-column align-items-start w-100">
-                            <label for="" class="form-label fw-normal">Username or Email</label>
+                            <label for="email" class="form-label fw-normal">Email</label>
                             <input type="email" class="form-control p-3 rounded border-secondary w-100" name="" id="" placeholder="Email" />
                         </div>
                         <div class="d-flex flex-column align-items-start w-100">
-                            <label for="" class="form-label fw-normal">Username</label>
+                            <label for="name" class="form-label fw-normal">Username</label>
                             <input type="name" class="form-control p-3 rounded border-secondary w-100" name="" id="" placeholder="Username" />
                         </div>
                         <div class="d-flex flex-column align-items-start w-100">
-                            <label for="" class="form-label fw-normal">Password</label>
+                            <label for="password" class="form-label fw-normal">Password</label>
                             <input type="password" class="form-control p-3 rounded border-secondary w-100" name="" id="" placeholder="Password" />
 
                         </div>
                         <div class="d-flex flex-column align-items-start w-100">
-                            <label for="" class="form-label fw-normal"> Confirm Password</label>
+                            <label for="confirm-password" class="form-label fw-normal"> Confirm Password</label>
                             <input type="password" class="form-control p-3 rounded border-secondary w-100" name="" id="" placeholder="Confirm Password" />
-
                         </div>
 
 

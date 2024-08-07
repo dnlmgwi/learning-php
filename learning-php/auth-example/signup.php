@@ -16,7 +16,8 @@
 
 </script>
 <?php
-include "database.php";
+include "./config/database.php";
+
 
 // Usage example
 $db = new Database();
@@ -69,7 +70,7 @@ if ($conn) {
 
                         <div>
                             <span class="fw-normal" style="font-size: 14px;">Already have an account? </span>
-                            <a href="./signin.php"><span class="fw-semibold text-decoration-underline" style="font-size: 14px;">Sign In</span></a>
+                            <a href="./"><span class="fw-semibold text-decoration-underline" style="font-size: 14px;">Sign In</span></a>
                         </div>
                     </div>
                     <div class="primary-button rounded light d-flex">

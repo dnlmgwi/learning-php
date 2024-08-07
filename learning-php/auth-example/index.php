@@ -16,22 +16,17 @@
 
 </script>
 <?php
-include "database.php";
+include "./repositories/authRepository.php";
+
 
 // Usage example
-$db = new Database();
-$conn = $db->getConnection();
+$repository = new AuthRepository();
 
-if ($conn) {
+if ($repository) {
     // Usage example
-    $db = new Database();
-    $conn = $db->getConnection();
+    $repository->createUser();
 
-    if ($conn) {
-        var_dump("Connected successfully");
-    } else {
-        var_dump("Connected failed");
-    }
+    var_dump("Connected successfully");
 } else {
     var_dump("Connected failed");
 }

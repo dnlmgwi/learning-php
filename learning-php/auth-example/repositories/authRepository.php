@@ -16,9 +16,24 @@ class AuthRepository
     }
 
     // Method to get the connection
-    public function createUser()
+    public function SignUp($email, $username, $password)
     {
-        return $this->db->getConnection();
+        // Create connection
+        $conn = $this->db->getConnection();
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "INSERT INTO users (email, username, password ) VALUES ('{$email}', '{$username}', '{$password}')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "Created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+        // mysqli_close($conn);
     }
 
     // Destructor to close the connection

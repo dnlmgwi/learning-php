@@ -117,6 +117,7 @@ function divide($a, $b) {
 
     <title>Calculator</title>
 </head>
+
 <body>
     <div class="flex h-screen justify-center">
         <div class="flex items-center">
@@ -125,24 +126,19 @@ function divide($a, $b) {
                     <div class="flex flex-col items-center space-y-4 mb-5 w-full">
                         <div class="flex flex-col items-center w-full">
                             <div class="flex flex-col items-start w-full p-4">
-                            <input 
-                                value="<?php echo $result; ?>"
-                                type="text" 
-                                class="p-3 rounded w-full text-right text-white shadow-inner bg-neutral-400 focus:outline-none focus:ring-0 focus:ring-grey-200 font-mono" 
-                                name="result"
-                                readonly
-                                placeholder="0"
-                            />
+                                <input value="<?php echo $result; ?>" type="text"
+                                    class="p-3 rounded w-full text-right text-white shadow-inner bg-neutral-400 focus:outline-none focus:ring-0 focus:ring-grey-200 font-mono"
+                                    name="result" readonly placeholder="0" />
                             </div>
-                            <div class="grid grid-cols-4 gap-2">                        
+                            <div class="grid grid-cols-4 gap-2">
                                 <div class="grid col-span-3 grid-cols-3 gap-2 w-full">
-                                     <?php
+                                    <?php
                                         foreach ($buttons as $row) {
                                             foreach ($row as $button) {
                                                 echo '<button type="submit" value="' . $button . '" class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" name="value">' . ucfirst($button) . '</button>';
                                             }
                                         }
-                                    ?>                         
+                                    ?>
                                     <!-- <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="7">7</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="8">8</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="9">9</button>
@@ -155,14 +151,21 @@ function divide($a, $b) {
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="0">0</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 rounded-full" type="submit" name="value" value="00">00</button>
                                     <button class="bg-gray-200 hover:bg-gray-300 p-4 col-start-3 rounded-full" type="submit" name="value" value=".">.</button> -->
-                                    <button class="bg-orange-500 hover:bg-orange-600 text-white p-4 col-span-3 rounded-full" type="submit" name="calculate">=</button>
+                                    <button
+                                        class="bg-orange-500 hover:bg-orange-600 text-white p-4 col-span-3 rounded-full"
+                                        type="submit" name="calculate">=</button>
                                 </div>
                                 <div class="grid grid-cols-1 col-start-4 gap-2">
-                                    <button class="bg-red-500 hover:bg-red-600 text-white p-4 rounded-full" type="submit" name="clear">AC</button>
-                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full" type="submit" name="value" value="÷">÷</button>
-                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full" type="submit" name="value" value="x">x</button>
-                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full" type="submit" name="value" value="-">-</button>
-                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full" type="submit" name="value" value="+">+</button>
+                                    <button class="bg-red-500 hover:bg-red-600 text-white p-4 rounded-full"
+                                        type="submit" name="clear">AC</button>
+                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full"
+                                        type="submit" name="value" value="÷">÷</button>
+                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full"
+                                        type="submit" name="value" value="x">x</button>
+                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full"
+                                        type="submit" name="value" value="-">-</button>
+                                    <button class="bg-gray-400 hover:bg-gray-600 text-white p-4 rounded-full"
+                                        type="submit" name="value" value="+">+</button>
                                 </div>
                             </div>
                         </div>
@@ -172,4 +175,5 @@ function divide($a, $b) {
         </div>
     </div>
 </body>
+
 </html>
